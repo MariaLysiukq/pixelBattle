@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Pixel Battle",
+            "request": "launch",
+            "mainClass": "pixelbattle.Main",
+            "cwd": "${workspaceFolder}",
+            "classPaths": ["${workspaceFolder}/out", "${workspaceFolder}/resources"]
+        }
+    ]
+}
