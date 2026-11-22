@@ -16,9 +16,10 @@ public class Knight extends Hero {
             int dmg = target.takeDamage(random(12, 18));
             return user.getName() + " рубає " + target.getName() + ": " + dmg + " шкоди";
         }));
-
-        // TODO 1: вміння «Щит» (Target.SELF, перезарядка 2):
-        //   лицар стає в захист — user.setGuarding(true).
+        addSkill(new Skill("Щит", Target.SELF, 2, (user, target) -> {
+            user.setGuarding(true);
+            return user.getName() + " піднімає щит: шкода вдвічі менша до наступного ходу";
+        }));
 
         // TODO 7: ультимейт «Небесний молот» — АНОНІМНИЙ КЛАС, що реалізує Ultimate:
         //   кожному ЖИВОМУ ворогу 15 шкоди та оглушення на 1 хід.

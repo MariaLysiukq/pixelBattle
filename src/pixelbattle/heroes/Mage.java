@@ -14,10 +14,12 @@ public class Mage extends Hero {
         addSkill(new Skill("Удар посохом", Target.ENEMY, 0, (user, target) ->
                 user.getName() + " б'є посохом " + target.getName() + ": "
                         + target.takeDamage(random(6, 10)) + " шкоди"));
-
-        // TODO 2: два вміння ЛЯМБДАМИ:
-        //   «Вогняна куля» (Target.ENEMY, перезарядка 1) — 22..30 шкоди;
-        //   «Зцілення»     (Target.ALLY,  перезарядка 2) — лікує ціль на 25.
+        addSkill(new Skill("Вогняна куля", Target.ENEMY, 1, (user, target) ->
+                user.getName() + " кидає вогняну кулю в " + target.getName() + ": "
+                        + target.takeDamage(random(22, 30)) + " шкоди"));
+        addSkill(new Skill("Зцілення", Target.ALLY, 2, (user, target) ->
+                user.getName() + " лікує " + target.getName() + ": +"
+                        + target.heal(25) + " HP"));
 
         // TODO 8: ультимейт «Метеорит» — окремий клас Meteor
         //   у файлі pixelbattle/ultimates/Meteor.java.
